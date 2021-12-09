@@ -22,5 +22,8 @@ plt.ylabel('T')
 plt.xticks(fontsize=10, rotation=270)  # 设置横坐标的字体大小并旋转
 plt.yticks(fontsize=10)
 
+# 绘制网格透明度
+plt.grid(alpha=o.1)
+
 # 显示图片
 plt.show()
