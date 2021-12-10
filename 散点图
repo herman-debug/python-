@@ -1,0 +1,31 @@
+from matplotlib import pyplot as plt
+from matplotlib import font_manager as fm
+import random
+# 绘制三月份和八月份的温度的散点图
+# 设置图形大小
+plt.figure(figsize=(50, 50), dpi=80)
+
+# 设置字体，黑体
+my_font = fm.FontProperties('simhei', size=15)
+
+# 横纵坐标的值
+a = [random.randint(5, 15) for i in range(0, 30)]
+b = [random.randint(25, 35) for i in range(0, 30)]
+x1 = range(0, 30)
+x2 = range(50, 80)
+x = list(x1) + list(x2)
+
+# 设置横纵坐标的刻度
+x_ticks = ['3月{}号'.format(i+1) for i in x1]
+x_ticks += ['3月{}号'.format(i-49) for i in x2]
+plt.scatter(x1, a, label='三月份',)
+plt.scatter(x2, b, label='十月份')
+plt.xticks(x[::3], x_ticks[::3], fontproperties=my_font, rotation=45)  # 重点,设置步长，x和x_ticks要对应，字体，
+plt.yticks(fontproperties=my_font)
+
+# 设置图例，横轴，纵轴，标题
+plt.legend(loc='upper left', prop=my_font)
+plt.xlabel('时间', fontproperties=my_font)
+plt.ylabel('温度', fontproperties=my_font)
+plt.title('标题', fontproperties=my_font)
+plt.show()
