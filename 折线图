@@ -1,4 +1,3 @@
-
 # 绘制温度随时间每一分钟的变化, 从十点到十二点,由于步长为1，横坐标有限，只取十点到十一点的变化
 import random
 from matplotlib import pyplot as plt
