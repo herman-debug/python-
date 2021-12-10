@@ -1,12 +1,14 @@
-# 绘制温度随时间每一分钟的变化, 从十点到十二点,由于步长为1，横坐标有限，只取十点到十一点的变化
+# 绘制温度随时间每一分钟的变化, 从十点到十二点
 import random
 from matplotlib import pyplot as plt
+from matplotlib import font_manager as fm
 
 # 设置图片大小
-fig = plt.figure(figsize=(50, 50), dpi=80)
-
+fig = plt.figure(figsize=(50, 50), dpi=60)
+my_font = fm.FontProperties('simhei', size=15)
 # 设置横纵坐标的值
 a = [random.randint(25, 30) for i in range(0, 60)]
+b = [random.randint(30, 32) for i in range(0, 60)]
 # time = range(0, 120)
 time = ['10:0{}'.format(i) for i in range(0, 10)]
 time_1 = ['10:{}'.format(i) for i in range(10, 60)]
@@ -15,14 +17,17 @@ time_1 = ['10:{}'.format(i) for i in range(10, 60)]
 time = time + time_1
 
 # 画图
-plt.plot(time, a)
-plt.xlabel('t')
-plt.ylabel('T')
+plt.plot(time, a, label='a')
+plt.plot(time, b, label='b')
+plt.xlabel('时间', fontproperties=my_font)
+plt.ylabel('温度', fontproperties=my_font)
+plt.title('标题', fontproperties=my_font)
 plt.xticks(fontsize=10, rotation=270)  # 设置横坐标的字体大小并旋转
 plt.yticks(fontsize=10)
 
-# 绘制网格透明度
-plt.grid(alpha=o.1)
-
+# 添加图例
+plt.legend()
+# 设置网格透明度
+plt.grid(alpha=0.1)
 # 显示图片
 plt.show()
